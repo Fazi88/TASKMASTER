@@ -1,3 +1,5 @@
+import { TaskManager } from "./TaskManager.js";
+
 if (document.readyState == "loading") {
   document.addEventListener("DOMContentLoaded", mainFunction);
 } else {
@@ -6,15 +8,25 @@ if (document.readyState == "loading") {
 }
 
 function mainFunction() {
+  const tm = new TaskManager();
   const form = document.querySelector("form");
   form.addEventListener("submit", validFormFieldInput);
 
   function validFormFieldInput(e) {
     e.preventDefault();
-    const taskInput = document.querySelector(".task-input");
-    if (taskInput.value == "") {
-      taskInput.focus();
-      console.log("Error. Task can't be empty")
-    }
+    const formData = new FormData(form);
+    // console.log(Array.from(formData.entries()))
+    // if (formData.get("name") == "") {
+    //   console.log("Error. Task can't be empty")
+    // }
+    // if (formData.get("assignedTo") == "Assign Role") {
+    //   console.log("Error. Task must be assigned to someone")
+    // }
+    let obj = {}
+    for (let [key, value] of formData)
+      obj[key] = value
+    tm.addTask(obj)
+    // console.log(tm.tasks)
+    form.reset();
   }
 }
