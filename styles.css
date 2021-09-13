@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #262729;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+}
+
+.add-task-modal {
+  width: 700px;
+  /*   height: 300px; */
+  border: 2px solid #444141;
+}
+
+.modal-header {
+  background-color: #2e2f31;
+  height: 80px;
+  /*   border-bottom: 1px solid black; */
+  display: flex;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin-left: 24px;
+  background-color: transparent;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+  /*   border: 1px solid black; */
+}
+
+.left {
+  /*   border: 1px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  /*   justify-content: flex-end; */
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  background-color: white;
+  color: black;
+}
+
+textarea {
+  background-color: white;
+  color: black;
+  padding: 10px;
+}
+
+.right {
+  /*   border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+}
+
+#select-role,
+#select-priority {
+  width: 250px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  margin-top: 25px;
+  /*   margin-bottom: 5px */
+}
+
+input[type="date"],
+input[type="time"] {
+  padding: 10px;
+  margin-top: 25px;
+  /*   margin-bottom: 10px; */
+  background-color: white;
+  color: black;
+}
+
+button {
+  background-color: purple;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+}
