@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <Link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="main.js"></script>
+  <title>TaskMaster</title>
+</head>
+<body>
+  <main>
+  <div class="add-task-modal">
+    <div class="modal-header">
+      <h2>Add task</h2>
+    </div>
+    <form>
+      <div class="left">
+        <input class="task-input" type="text" name="name" placeholder="Add task">
+        <textarea class="text-area" placeholder="  Description" name="description" rows="5" cols="40"></textarea>
+      </div>
+      <div class="right">
+        <select name="assignedTo" id="select-role">
+          <option>Assign Role</option>
+          <option>Samuel</option>
+          <option>Xia</option>
+          <option>Giovanni</option>
+          <option>Fazilat</option>
+        </select>
+
+        <div>
+          <input type="date" id="start" name="dueDate" value="2021-09-10" min="2021-09-01" max="2021-12-30" required>
+
+<!--           <input type="time" id="appt" name="appt" > -->
+        </div>
+
+        <select name="select-priority" id="select-priority">
+          <option>Priority</option>
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+          <option>No Priority</option>
+        </select>
+        <div>
+<!--           <button>Cancel</button> -->
+          <button>Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </main>
+</body>
+</html>
