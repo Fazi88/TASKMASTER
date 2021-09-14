@@ -1,10 +1,9 @@
 
 export function createTaskHtml(name, description, assignedTo, dueDate, status) {
   const html = `
-  <li class="list-group-item">
+  <li class="task-item">
       <div>
           <h5>${name}</h5>
-          <span>${status}</span>
       </div>
       <div>
           <small>Assigned To: ${assignedTo}</small>
@@ -28,4 +27,16 @@ export class TaskManager {
     const status = this.status
     this.tasks = [...this.tasks, { id, ...obj, status }];
   }
+  render() {
+    // Iterate this.tasks so we can get all the tasksHTML
+    const tasksHtmlList = this.tasks.map(task => {
+      // TODO: formatted date
+      let formattedDate = new Date(task.dueDate).toLocaleDateString();
+      return createTaskHtml(task.name, task.description, task.assignedTo, task.dueDate, task.status)
+    }).join('')
+    document.getElementById('task-list').innerHTML = tasksHtmlList;
+  }
 }
+
+
+
