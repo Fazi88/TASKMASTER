@@ -15,9 +15,11 @@ function mainFunction() {
   function validFormFieldInput(e) {
     e.preventDefault();
     const formData = new FormData(form);
-    const task = []
-    formData.forEach(value => task.push(value))
-    const taskHtml = createTaskHtml(task[0], task[1], task[2], task[3]);
+
+    // const task = []
+    // formData.forEach(value => task.push(value))
+    // const taskHtml = createTaskHtml(task[0], task[1], task[2], task[3]);
+    
     // if (formData.get("name") == "") {
     //   console.log("Error. Task can't be empty")
     // }
@@ -29,6 +31,7 @@ function mainFunction() {
       obj[key] = value
     tm.addTask(obj)
     // console.log(tm.tasks)
+    tm.render()
     form.reset();
   }
 }
