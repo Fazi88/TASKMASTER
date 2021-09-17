@@ -9,6 +9,8 @@ if (document.readyState == "loading") {
 
 function mainFunction() {
   const tm = new TaskManager();
+  tm.load()
+  tm.render()
   const form = document.querySelector("form");
   form.addEventListener("submit", validFormFieldInput);
 
@@ -19,7 +21,7 @@ function mainFunction() {
     // const task = []
     // formData.forEach(value => task.push(value))
     // const taskHtml = createTaskHtml(task[0], task[1], task[2], task[3]);
-    
+
     // if (formData.get("name") == "") {
     //   console.log("Error. Task can't be empty")
     // }
@@ -30,6 +32,7 @@ function mainFunction() {
     for (let [key, value] of formData)
       obj[key] = value
     tm.addTask(obj)
+    tm.save();
     // console.log(tm.tasks)
     tm.render()
     form.reset();
