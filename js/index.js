@@ -18,6 +18,16 @@ function mainFunction() {
     e.preventDefault();
     const formData = new FormData(form);
 
+    //  Task 9.3 
+
+  let btnDelete = document.querySelector('#delete-button');
+
+  btnDelete.addEventListener('click', deleteAfterClick);
+
+  function deleteAfterClick() {
+    li.remove(button.addEventListener("click"));
+
+  }
     // const task = []
     // formData.forEach(value => task.push(value))
     // const taskHtml = createTaskHtml(task[0], task[1], task[2], task[3]);
