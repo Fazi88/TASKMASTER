@@ -1,6 +1,6 @@
-export function createTaskHtml(name, description, assignedTo, dueDate, status) {
+export function createTaskHtml(id, name, description, assignedTo, dueDate, status) {
   const html = `
-  <li class="task-item">
+  <li data-task-id="${id}">
       <div>
           <h5>${name}</h5>
       </div>
@@ -9,6 +9,7 @@ export function createTaskHtml(name, description, assignedTo, dueDate, status) {
           <small>Due: ${dueDate}</small>
       </div>
       <p>${description}</p>
+      <button class="delete-button">Delete</button> 
   </li>
   `
   return html
@@ -27,15 +28,18 @@ export class TaskManager {
     console.log("Current ID -> ", this.id)
     this.tasks = [...this.tasks, { id, ...obj, status }];
   }
+  deleteTask(taskId) {
+    this.tasks = this.tasks.filter(task => task.id !== taskId)
+  }
   render() {
     // Iterate this.tasks so we can get all the tasksHTML
     const tasksHtmlList = this.tasks?.map(task => {
       // TODO: formatted date
       let formattedDate = new Date(task.dueDate).toLocaleDateString();
       // debugger
-      return createTaskHtml(task.name, task.description, task.assignedTo, task.dueDate, task.status)
+      return createTaskHtml(task.id, task.name, task.description, task.assignedTo, task.dueDate, task.status)
     }).join('')
-    if (tasksHtmlList) document.getElementById('task-list').innerHTML = tasksHtmlList;
+    document.getElementById('tasks-list').innerHTML = tasksHtmlList;
   }
   save() {
     const tasksJson = JSON.stringify(this.tasks)

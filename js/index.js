@@ -14,20 +14,21 @@ function mainFunction() {
   const form = document.querySelector("form");
   form.addEventListener("submit", validFormFieldInput);
 
+  const tasksList = document.querySelector("#tasks-list")
+  tasksList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('delete-button')) {
+      const parentTask = event.target.parentElement
+      const taskId = +parentTask.dataset.taskId
+      tm.deleteTask(taskId)
+      console.log('task deleted -> ', taskId)
+      tm.save();
+      tm.render()
+    }
+  });
+
   function validFormFieldInput(e) {
     e.preventDefault();
     const formData = new FormData(form);
-
-    //  Task 9.3 
-
-  let btnDelete = document.querySelector('#delete-button');
-
-  btnDelete.addEventListener('click', deleteAfterClick);
-
-  function deleteAfterClick() {
-    li.remove(button.addEventListener("click"));
-
-  }
     // const task = []
     // formData.forEach(value => task.push(value))
     // const taskHtml = createTaskHtml(task[0], task[1], task[2], task[3]);
@@ -43,7 +44,6 @@ function mainFunction() {
       obj[key] = value
     tm.addTask(obj)
     tm.save();
-    // console.log(tm.tasks)
     tm.render()
     form.reset();
   }
